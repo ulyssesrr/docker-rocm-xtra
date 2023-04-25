@@ -1,3 +1,5 @@
+This image is used to build a patched rocBLAS debian package for the gfx803 architecture.
+
 # Usage
 
 ```shell
