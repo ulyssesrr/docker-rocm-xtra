@@ -18,3 +18,9 @@ RUN curl -L $ROCBLAS_BASE_URL/$ROCBLAS_FILE --output $ROCBLAS_FILE \
 RUN curl -L $ROCBLAS_BASE_URL/$ROCBLAS_DEV_FILE --output $ROCBLAS_DEV_FILE \
     && dpkg -i ./${ROCBLAS_DEV_FILE} \
     && rm -f ./${ROCBLAS_DEV_FILE}
+
+# apt install git python-is-python3
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    git \
+    python-is-python3 \
+    && rm -rf /var/lib/apt/lists/*
