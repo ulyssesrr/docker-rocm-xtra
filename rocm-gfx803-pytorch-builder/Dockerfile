@@ -4,11 +4,12 @@ ARG ROCM_MINOR_VERSION
 ARG ROCM_PATCH_VERSION
 ARG ROCM_BUILD_NUMBER
 ARG ROCM_VERSION
+ARG PYTHON_VERSION
 ARG PYTORCH_VERSION
 ARG PYTORCH_VISION_VERSION
 ARG NUM_CPU_CORES
 
-FROM ulyssesrr/rocm-dev-gfx803:ubuntu${UBUNTU_VERSION}-rocm${ROCM_VERSION}-complete
+FROM ulyssesrr/rocm-gfx803-pytorch-base:rocm${ROCM_VERSION}_ubuntu${UBUNTU_VERSION}_py${PYTHON_VERSION}_pytorch${PYTORCH_VERSION}
 
 ARG UBUNTU_VERSION
 ARG ROCM_ARCH
@@ -17,6 +18,7 @@ ARG ROCM_MINOR_VERSION
 ARG ROCM_PATCH_VERSION
 ARG ROCM_BUILD_NUMBER
 ARG ROCM_VERSION
+ARG PYTHON_VERSION
 ARG PYTORCH_VERSION
 ARG PYTORCH_VISION_VERSION
 ARG NUM_CPU_CORES
@@ -34,7 +36,7 @@ ARG ROCM_VERSION
 
 # prepare torch build
 ## torch deps
-RUN pip install astunparse numpy ninja pyyaml setuptools cmake cffi typing_extensions future six requests dataclasses mkl mkl-include
+RUN pip install astunparse numpy ninja pyyaml setuptools cmake cffi typing_extensions future six requests dataclasses
 
 RUN git clone --depth 1 --branch v${PYTORCH_VERSION} --recursive https://github.com/pytorch/pytorch.git
 

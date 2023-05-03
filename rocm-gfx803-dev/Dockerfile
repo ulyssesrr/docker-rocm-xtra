@@ -6,6 +6,7 @@ ARG ROCM_PATCH_VERSION
 ARG ROCM_BUILD_NUMBER
 ARG ROCM_LIBPATCH_VERSION
 ARG ROCM_VERSION
+ARG MAGMA_VERSION
 ARG ROCBLAS_BASE_URL
 ARG ROCBLAS_FILE
 ARG ROCBLAS_DEV_FILE
@@ -18,7 +19,7 @@ ARG GFX803_DIST_TORCH_WHEEL
 ARG GFX803_DIST_TORCHVISION_WHEEL
 ARG NUM_CPU_CORES
 
-FROM ulyssesrr/rocm-gfx803-pytorch-base:rocm${ROCM_VERSION}_ubuntu${UBUNTU_VERSION}_py${PYTHON_VERSION}_pytorch${PYTORCH_VERSION}
+FROM rocm/dev-ubuntu-${UBUNTU_VERSION}:${ROCM_VERSION}-complete
 
 ARG UBUNTU_VERSION
 ARG ROCM_ARCH
@@ -28,6 +29,7 @@ ARG ROCM_PATCH_VERSION
 ARG ROCM_BUILD_NUMBER
 ARG ROCM_LIBPATCH_VERSION
 ARG ROCM_VERSION
+ARG MAGMA_VERSION
 ARG ROCBLAS_BASE_URL
 ARG ROCBLAS_FILE
 ARG ROCBLAS_DEV_FILE
@@ -42,15 +44,20 @@ ARG NUM_CPU_CORES
 
 LABEL org.opencontainers.image.authors="Ulysses R. Ribeiro <ulyssesrr@gmail.com>"
 
-WORKDIR /git
+# install rocblas
+RUN curl -L $ROCBLAS_BASE_URL/$ROCBLAS_FILE --output $ROCBLAS_FILE \
+    && dpkg -i ./${ROCBLAS_FILE} \
+    && rm -f ./${ROCBLAS_FILE}
 
-# install pytorch
-RUN pip install --no-cache-dir ${GFX803_DIST_BASE_URL}/${GFX803_DIST_TORCH_WHEEL}
+# install rocblas-dev
+RUN curl -L $ROCBLAS_BASE_URL/$ROCBLAS_DEV_FILE --output $ROCBLAS_DEV_FILE \
+    && dpkg -i ./${ROCBLAS_DEV_FILE} \
+    && rm -f ./${ROCBLAS_DEV_FILE}
 
-# install torchvision
-RUN pip install --no-cache-dir ${GFX803_DIST_BASE_URL}/${GFX803_DIST_TORCHVISION_WHEEL}
-
-# install opencv
-RUN pip install --no-cache-dir opencv-python==${OPENCV_VERSION}
-
-WORKDIR /app
+# apt install git python-is-python3
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    git \
+    python-is-python3 \
+    nano \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
