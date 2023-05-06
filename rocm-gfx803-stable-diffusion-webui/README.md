@@ -1,6 +1,6 @@
 # Intro
 
-AUTOMATIC1111's Stable Diffusion web UI Docker Image for Radeon GFX803 cards
+AUTOMATIC1111's Stable Diffusion Web UI Docker Image for Radeon gfx803 cards.
 
 # Usage
 
