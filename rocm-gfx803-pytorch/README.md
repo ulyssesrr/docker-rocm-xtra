@@ -1,66 +1,36 @@
 # Intro
 
-This repo hosts the docker images for PyTorch releases with ROCm backend support. 
-
-The docker images been hosted in this registry are meant to run on gfx803 cards, however only the `Radeon RX 580` is currently tested.
+Docker images for PyTorch (including OpenBLAS and MAGMA) with ROCm backend support adapted to gfx803 cards.
 
 # Usage
 
 ## Recommended aliases
+
 ```shell
 alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/current'
-
-alias udrun='drun -u $(id -u ${USER}):$(id -g ${USER})'
 ```
+
 ## Sample usage
+
 ```shell
 [ulysses@ftl docker-rocm-gfx803]$ drun --rm ulyssesrr/rocm-gfx803-pytorch
 root@ftl:/app# python3
-Python 3.8.10 (default, Mar 15 2022, 12:22:08) 
+Python 3.8.10 (default, Mar 13 2023, 10:26:41) 
 [GCC 9.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import torch
 >>> print(torch.__version__)
-1.11.0a0+git503a092
+1.13.1
+>>> torch.cuda.get_device_name(torch.cuda.current_device())
+'Radeon RX 580 Series'
+>>> a = torch.randn(3, 3, device='cuda')
+>>> a.svd()
+torch.return_types.svd(
+U=tensor([[-0.0894,  0.2031,  0.9751],
+        [ 0.5636, -0.7969,  0.2176],
+        [ 0.8212,  0.5690, -0.0433]], device='cuda:0'),
+S=tensor([2.5529, 1.8354, 0.1961], device='cuda:0'),
+V=tensor([[ 0.7216, -0.4800,  0.4989],
+        [-0.6366, -0.1771,  0.7506],
+        [-0.2719, -0.8592, -0.4333]], device='cuda:0'))
 ```
-# Acknowledgements
-Based on the packages built by https://github.com/xuhuisheng/rocm-gfx803
-
-# gfx803 Cards
-    Fiji
-        Fiji XT
-            Radeon Instinct MI8
-            Radeon R9 Fury X
-            Radeon R9 Fury
-            Radeon R9 Nano
-        Capsaicin XT
-            FirePro S9300x2
-            Radeon Pro Duo 2016
-    Polaris 30
-        Radeon RX 590
-    Polaris 20
-        Radeon Pro 580
-        Radeon RX 580
-        Radeon Pro 575
-        Radeon Pro 570
-        Radeon RX 570
-    Polaris 10
-        Radeon Instinct MI6
-        Radeon Pro Duo 2017
-        Radeon Pro WX 7100
-        Radeon Pro WX 7100 Mobile
-        Radeon RX 480
-        Radeon Pro WX 5100
-        Radeon RX 470
-    Polaris 21
-        Radeon Pro 560X
-        Radeon Pro 560
-        Radeon Pro 555X
-        Radeon Pro 555
-    Polaris 11
-        Radeon Pro WX 4100
-        Radeon Pro WX 4170 Mobile
-        Radeon Pro WX 4150 Mobile
-        Radeon Pro WX 4130 Mobile
-        Radeon RX 560D
-        Radeon RX 460
