@@ -2,29 +2,33 @@
 
 This repo hosts the docker images for PyTorch releases with ROCm backend support. 
 
-The docker images been hosted in this registry are meant to run on gfx803 cards, however only the `Radeon RX 580` is currently tested.
+The docker images been hosted in this registry are meant to run on gfx803 cards, however only the *Radeon RX 580 8GB* is currently tested.
 
 # Usage
 
 ## Recommended aliases
+
 ```shell
 alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/current'
+```
 
-alias udrun='drun -u $(id -u ${USER}):$(id -g ${USER})'
-```
-## Sample usage
-```shell
-[ulysses@ftl docker-rocm-gfx803]$ drun --rm ulyssesrr/rocm-gfx803-pytorch
-root@ftl:/app# python3
-Python 3.8.10 (default, Mar 15 2022, 12:22:08) 
-[GCC 9.4.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import torch
->>> print(torch.__version__)
-1.11.0a0+git503a092
-```
+# Images
+See each image README for details.
+
+Image | Description | Docs
+--- | --- | ---
+pytorch | PyTorch (OpenBLAS/MAGMA) | [README](rocm-gfx803-pytorch/README.md)
+stable-diffusion-webui | AUTOMATIC1111's Stable Diffusion Web UI | [README](rocm-gfx803-stable-diffusion-webui/README.md)
+
+# Builder Images
+TODO
+
+# Debian & Python Packages (unsupported)
+
+https://github.com/ulyssesrr/rocm-gfx803/releases
+
 # Acknowledgements
-Based on the packages built by https://github.com/xuhuisheng/rocm-gfx803
+Uses Xu Huisheng's [patches](https://github.com/xuhuisheng/rocm-gfx803) for rocBLAS
 
 # gfx803 Cards
     Fiji
