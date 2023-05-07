@@ -17,8 +17,8 @@ See each image README for details.
 
 Image | Description | Docs
 --- | --- | ---
-pytorch | PyTorch (OpenBLAS/MAGMA) | [README](rocm-gfx803-pytorch/README.md)
-stable-diffusion-webui | AUTOMATIC1111's Stable Diffusion Web UI | [README](rocm-gfx803-stable-diffusion-webui/README.md)
+[ulyssesrr/rocm-gfx803-pytorch][pytorch]<br />[![ulyssesrr/rocm-gfx803-pytorch][pytorch-badge]][pytorch] | PyTorch (OpenBLAS/MAGMA) | [README](rocm-gfx803-pytorch/README.md)
+[ulyssesrr/rocm-gfx803-stable-diffusion-webui][stable-diffusion-webui]<br />[![ulyssesrr/rocm-gfx803-stable-diffusion-webui][stable-diffusion-webui-badge]][stable-diffusion-webui] | AUTOMATIC1111's Stable Diffusion Web UI | [README](rocm-gfx803-stable-diffusion-webui/README.md)
 
 # Builder Images
 TODO
@@ -68,3 +68,7 @@ Uses Xu Huisheng's [patches](https://github.com/xuhuisheng/rocm-gfx803) for rocB
         Radeon Pro WX 4130 Mobile
         Radeon RX 560D
         Radeon RX 460
+[pytorch]: https://hub.docker.com/r/ulyssesrr/rocm-gfx803-pytorch
+[pytorch-badge]: https://img.shields.io/docker/v/ulyssesrr/rocm-gfx803-pytorch?color=green
+[stable-diffusion-webui]: https://hub.docker.com/r/ulyssesrr/rocm-gfx803-stable-diffusion-webui
+[stable-diffusion-webui-badge]: https://img.shields.io/docker/v/ulyssesrr/rocm-gfx803-stable-diffusion-webui?color=green
