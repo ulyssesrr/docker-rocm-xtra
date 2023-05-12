@@ -1,8 +1,7 @@
 # Intro
 
-This repo hosts the docker images for PyTorch releases with ROCm backend support. 
+This repo hosts the docker images with ROCm backend support for the gfx803 architecture.
 
-The docker images been hosted in this registry are meant to run on gfx803 cards, however only the *Radeon RX 580 8GB* is currently tested.
 
 # Usage
 
