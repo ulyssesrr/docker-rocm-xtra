@@ -18,6 +18,8 @@ ARG GFX803_DIST_TORCH_WHEEL
 ARG GFX803_DIST_TORCHVISION_WHEEL
 ARG NUM_CPU_CORES
 
+FROM ulyssesrr/rocm-gfx803-pytorch-builder:rocm${ROCM_VERSION}_ubuntu${UBUNTU_VERSION}_py${PYTHON_VERSION}_pytorch${PYTORCH_VERSION} as rocm-gfx803-pytorch-builder
+
 FROM ulyssesrr/rocm-gfx803-pytorch-base:rocm${ROCM_VERSION}_ubuntu${UBUNTU_VERSION}_py${PYTHON_VERSION}_pytorch${PYTORCH_VERSION}
 
 ARG UBUNTU_VERSION
@@ -42,13 +44,18 @@ ARG NUM_CPU_CORES
 
 LABEL org.opencontainers.image.authors="Ulysses R. Ribeiro <ulyssesrr@gmail.com>"
 
-WORKDIR /git
+COPY --from=rocm-gfx803-pytorch-builder /build/*.whl /tmp/pytorch/
 
 # install pytorch
-RUN pip install --no-cache-dir ${GFX803_DIST_BASE_URL}/${GFX803_DIST_TORCH_WHEEL}
+RUN pip install --no-cache-dir /tmp/pytorch/torch-*.whl
 
 # install torchvision
-RUN pip install --no-cache-dir ${GFX803_DIST_BASE_URL}/${GFX803_DIST_TORCHVISION_WHEEL}
+RUN pip install --no-cache-dir /tmp/pytorch/torchvision-*.whl
+
+# install torchaudio
+RUN pip install --no-cache-dir /tmp/pytorch/torchaudio-*.whl
+
+RUN rm -f /tmp/pytorch/*.whl
 
 # install opencv
 RUN pip install --no-cache-dir opencv-python==${OPENCV_VERSION}

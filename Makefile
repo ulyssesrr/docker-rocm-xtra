@@ -1,9 +1,11 @@
 all:
 	echo "TODO! :)"
-dev:
-	cd rocm-gfx803-dev && ./docker-build.sh
+rocblas_fixed_package:
+	cd rocm-xtra-rocblas-builder && ./docker-build.sh
+dev: rocblas_fixed_package
+	cd rocm-xtra-dev && ./docker-build.sh
 llamacpp: dev
-	cd rocm-gfx803-llamacpp && ./docker-build.sh
+	cd rocm-xtra-llamacpp && ./docker-build.sh
 pytorch_base: dev
 	cd rocm-gfx803-pytorch-base && ./docker-build.sh
 

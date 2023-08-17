@@ -1,7 +1,6 @@
 # Intro
 
-This repo hosts the docker images with ROCm backend support for the gfx803 architecture.
-
+This repo hosts the docker images with ROCm backend support for extra architectures.
 
 # Usage
 
@@ -14,8 +13,11 @@ alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/d
 # Images
 See each image README for details.
 
+Images starting with `rocm-xtra` supports all architectures. Images starting with `rocm-gfx803` only support the gfx803 arch.
+
 Image | Description | Docs
 --- | --- | ---
+[ulyssesrr/rocm-xtra-llamacpp][llamacpp]<br />[![ulyssesrr/ulyssesrr/rocm-xtra-llamacpp][llamacpp-badge]][llamacpp] | [llama.cpp + PR#1087](https://github.com/ggerganov/llama.cpp/pull/1087) | [README](rocm-xtra-llamacpp/README.md)
 [ulyssesrr/rocm-gfx803-pytorch][pytorch]<br />[![ulyssesrr/rocm-gfx803-pytorch][pytorch-badge]][pytorch] | PyTorch (OpenBLAS/MAGMA) | [README](rocm-gfx803-pytorch/README.md)
 [ulyssesrr/rocm-gfx803-stable-diffusion-webui][stable-diffusion-webui]<br />[![ulyssesrr/rocm-gfx803-stable-diffusion-webui][stable-diffusion-webui-badge]][stable-diffusion-webui] | AUTOMATIC1111's Stable Diffusion Web UI | [README](rocm-gfx803-stable-diffusion-webui/README.md)
 
@@ -70,5 +72,7 @@ Uses Xu Huisheng's [patches](https://github.com/xuhuisheng/rocm-gfx803) for rocB
 
 [pytorch]: https://hub.docker.com/r/ulyssesrr/rocm-gfx803-pytorch
 [pytorch-badge]: https://img.shields.io/docker/v/ulyssesrr/rocm-gfx803-pytorch?color=green
+[llamacpp]: https://hub.docker.com/r/ulyssesrr/rocm-xtra-llamacpp
+[llamacpp-badge]: https://img.shields.io/docker/v/ulyssesrr/rocm-xtra-llamacpp?color=green
 [stable-diffusion-webui]: https://hub.docker.com/r/ulyssesrr/rocm-gfx803-stable-diffusion-webui
 [stable-diffusion-webui-badge]: https://img.shields.io/docker/v/ulyssesrr/rocm-gfx803-stable-diffusion-webui?color=green

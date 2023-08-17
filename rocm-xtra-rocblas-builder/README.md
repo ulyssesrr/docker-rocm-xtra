@@ -3,7 +3,7 @@ This image is used to build a patched rocBLAS debian package for the gfx803 arch
 # Usage
 
 ```shell
-drun --rm -it ulyssesrr/rocm-gfx803-rocblas-builder:latest
+drun --rm ulyssesrr/rocm-xtra-rocblas-builder:latest bash -c 'cp /rocblas-deb/rocblas*.deb /current/build'
 ```
 
 # Acknowledgements
