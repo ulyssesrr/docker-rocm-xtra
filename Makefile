@@ -1,19 +1,18 @@
-all:
-	echo "TODO! :)"
+all: dev pytorch llamacpp stable_diffusion_webui
+	echo "All built!"
 rocblas_fixed_package:
-	cd rocm-xtra-rocblas-builder && ./docker-build.sh
-dev: rocblas_fixed_package
+	cd rocm-xtra-builder-rocblas && ./docker-build.sh
+rocsparse_fixed_package:
+	cd rocm-xtra-builder-rocsparse && ./docker-build.sh
+dev: rocblas_fixed_package rocsparse_fixed_package
 	cd rocm-xtra-dev && ./docker-build.sh
 llamacpp: dev
 	cd rocm-xtra-llamacpp && ./docker-build.sh
-pytorch_base: dev
-	cd rocm-gfx803-pytorch-base && ./docker-build.sh
-
 pytorch: pytorch_base
-	cd rocm-gfx803-pytorch && ./docker-build.sh
-
+	cd rocm-xtra-pytorch && ./docker-build.sh
 stable_diffusion_webui: pytorch
-	cd rocm-gfx803-stable-diffusion-webui && ./docker-build.sh
-
+	cd rocm-xtra-stable-diffusion-webui && ./docker-build.sh
+pytorch_base: dev
+	cd rocm-xtra-pytorch-base && ./docker-build.sh
 pytorch_builder: pytorch_base
-	cd rocm-gfx803-pytorch-builder && ./docker-build.sh
+	cd rocm-xtra-pytorch-builder && ./docker-build.sh
