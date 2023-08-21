@@ -8,7 +8,7 @@ dev: rocblas_fixed_package rocsparse_fixed_package
 	cd rocm-xtra-dev && ./docker-build.sh
 llamacpp: dev
 	cd rocm-xtra-llamacpp && ./docker-build.sh
-pytorch: pytorch_base
+pytorch: pytorch_base pytorch_builder
 	cd rocm-xtra-pytorch && ./docker-build.sh
 stable_diffusion_webui: pytorch
 	cd rocm-xtra-stable-diffusion-webui && ./docker-build.sh
