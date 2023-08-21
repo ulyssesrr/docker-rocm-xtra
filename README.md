@@ -34,13 +34,14 @@ Images are being migrated to support all archs. Images where the name starts wit
 
 Image | Description | Docs
 --- | --- | ---
-[ulyssesrr/rocm-xtra-dev][llamacpp]<br />[![ulyssesrr/ulyssesrr/rocm-xtra-dev][devimage-badge]][devimage] | Base image for development | [README](rocm-xtra-dev/README.md)
+[ulyssesrr/rocm-xtra-dev][devimage]<br />[![ulyssesrr/ulyssesrr/rocm-xtra-dev][devimage-badge]][devimage] | Base image for development | [README](rocm-xtra-dev/README.md)
 [ulyssesrr/rocm-xtra-llamacpp][llamacpp]<br />[![ulyssesrr/ulyssesrr/rocm-xtra-llamacpp][llamacpp-badge]][llamacpp] | [llama.cpp + PR#1087](https://github.com/ggerganov/llama.cpp/pull/1087) | [README](rocm-xtra-llamacpp/README.md)
 [ulyssesrr/rocm-gfx803-pytorch][pytorch]<br />[![ulyssesrr/rocm-gfx803-pytorch][pytorch-badge]][pytorch] | PyTorch (OpenBLAS/MAGMA) | [README](rocm-gfx803-pytorch/README.md)
 [ulyssesrr/rocm-gfx803-stable-diffusion-webui][stable-diffusion-webui]<br />[![ulyssesrr/rocm-gfx803-stable-diffusion-webui][stable-diffusion-webui-badge]][stable-diffusion-webui] | AUTOMATIC1111's Stable Diffusion Web UI | [README](rocm-gfx803-stable-diffusion-webui/README.md)
 
 # Builder Images
 TODO
+
 [devimage]: https://hub.docker.com/r/ulyssesrr/rocm-xtra-llamacpp
 [devimage-badge]: https://img.shields.io/docker/v/ulyssesrr/rocm-xtra-dev?color=green
 [pytorch]: https://hub.docker.com/r/ulyssesrr/rocm-gfx803-pytorch
