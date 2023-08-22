@@ -14,23 +14,28 @@ alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/d
 
 ```shell
 [ulysses@ftl docker-rocm-xtra]$ drun --pull=always --rm ulyssesrr/rocm-xtra-pytorch:latest
-root@ftl:/app# python3
-Python 3.8.10 (default, Mar 13 2023, 10:26:41) 
-[GCC 9.4.0] on linux
+root@ftl:/app# python
+Python 3.10.6 (main, Mar 10 2023, 10:55:28) [GCC 11.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import torch
->>> print(torch.__version__)
-1.13.1
+>>> torch.__version__
+'1.13.1'
 >>> torch.cuda.get_device_name(torch.cuda.current_device())
-'Radeon RX 580 Series'
+'AMD Radeon RX 5700 XT'
 >>> a = torch.randn(3, 3, device='cuda')
 >>> a.svd()
 torch.return_types.svd(
-U=tensor([[-0.0894,  0.2031,  0.9751],
-        [ 0.5636, -0.7969,  0.2176],
-        [ 0.8212,  0.5690, -0.0433]], device='cuda:0'),
-S=tensor([2.5529, 1.8354, 0.1961], device='cuda:0'),
-V=tensor([[ 0.7216, -0.4800,  0.4989],
-        [-0.6366, -0.1771,  0.7506],
-        [-0.2719, -0.8592, -0.4333]], device='cuda:0'))
+U=tensor([[-0.6892, -0.6190,  0.3767],
+        [ 0.7124, -0.4838,  0.5083],
+        [-0.1323,  0.6187,  0.7744]], device='cuda:0'),
+S=tensor([1.7729, 1.4760, 0.5706], device='cuda:0'),
+V=tensor([[-0.6071,  0.7628,  0.2229],
+        [ 0.3171,  0.4897, -0.8122],
+        [-0.7286, -0.4224, -0.5392]], device='cuda:0'))
+>>> import torchvision
+>>> torchvision.__version__
+'0.14.1a0+5e8e2f1'
+>>> import torchaudio
+>>> torchaudio.__version__
+'0.13.1+b90d798'
 ```
