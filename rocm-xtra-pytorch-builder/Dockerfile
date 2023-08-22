@@ -83,9 +83,21 @@ RUN --mount=type=cache,target=/var/cache/apt,rw --mount=type=cache,target=/var/l
 WORKDIR /git
 RUN git clone --depth 1 --branch v${PYTORCH_VISION_VERSION} --recursive https://github.com/pytorch/vision.git
 
+RUN mkdir /patches
+COPY patches /patches
+RUN patch -Np1 -d /git/vision -i /patches/torchvision-fix_ROCm_build.patch
+
 ## generate wheel
 WORKDIR /git/vision
-RUN python setup.py bdist_wheel
+
+# fix bin/hipcc not found, because ROCM_HOME is lost
+# https://github.com/pytorch/vision/issues/6707#issuecomment-1269640873
+ENV ROCM_HOME=/opt/rocm-${ROCM_VERSION}
+
+RUN TORCHVISION_USE_NVJPEG=0 \
+    TORCHVISION_USE_VIDEO_CODEC=0 \
+    TORCHVISION_USE_FFMPEG=1 \
+    python setup.py bdist_wheel
 RUN cp /git/vision/dist/*.whl /build
 
 # Build torchaudio
@@ -105,7 +117,7 @@ RUN --mount=type=cache,target=/var/cache/apt,rw --mount=type=cache,target=/var/l
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /git/audio
-RUN python setup.py bdist_wheel
+RUN CMAKE_PREFIX_PATH=/opt/rocm-${ROCM_VERSION} BUILD_SOX=1 USE_ROCM=1 python setup.py bdist_wheel
 RUN cp /git/audio/dist/*.whl /build
 
 WORKDIR /build

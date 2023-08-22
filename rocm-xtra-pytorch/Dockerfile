@@ -46,4 +46,17 @@ RUN rm -f /tmp/pytorch/*.whl
 # install opencv
 RUN pip install --no-cache-dir opencv-python==${OPENCV_VERSION}
 
+# runtime deps (use dev deps to keep it simple)
+RUN --mount=type=cache,target=/var/cache/apt,rw --mount=type=cache,target=/var/lib/apt,rw \
+    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    libpng-dev \
+    libjpeg-turbo8-dev \
+    ffmpeg \
+    libavcodec-dev \
+    libswscale-dev \
+    libavutil-dev \
+    libswresample-dev \
+    libavformat-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
