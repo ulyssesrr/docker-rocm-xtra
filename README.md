@@ -4,7 +4,7 @@ This repo hosts the docker images with ROCm backend support for extra architectu
 
 # Supported Architectures:
 
-The following archs are supported, despite the repository name:
+The following archs are supported, despite the repository name 😄:
 
 Image | Description
 --- | ---
