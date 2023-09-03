@@ -19,7 +19,7 @@ Python 3.10.6 (main, Mar 10 2023, 10:55:28) [GCC 11.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import torch
 >>> torch.__version__
-'1.13.1'
+'2.0.1'
 >>> torch.cuda.get_device_name(torch.cuda.current_device())
 'AMD Radeon RX 5700 XT'
 >>> a = torch.randn(3, 3, device='cuda')
@@ -34,8 +34,8 @@ V=tensor([[-0.6071,  0.7628,  0.2229],
         [-0.7286, -0.4224, -0.5392]], device='cuda:0'))
 >>> import torchvision
 >>> torchvision.__version__
-'0.14.1a0+5e8e2f1'
+'0.15.2a0+fa99a53'
 >>> import torchaudio
 >>> torchaudio.__version__
-'0.13.1+b90d798'
+'2.0.2+31de77d'
 ```

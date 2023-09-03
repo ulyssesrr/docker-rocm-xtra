@@ -6,4 +6,4 @@ TODO
 
 # Fixes
 
-- Builds with support for gfx1010 (Navi 10), gfx1011 (Navi 12), gfx1012 (Navi 14)
+- Builds with support for gfx1010 (Navi 10) https://github.com/ROCmSoftwarePlatform/rocSPARSE/issues/348

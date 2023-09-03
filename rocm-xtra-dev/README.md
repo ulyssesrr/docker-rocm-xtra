@@ -18,8 +18,6 @@ alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/d
 [ulysses@ftl rocm-xtra-dev]$ drun  --pull=always --rm ulyssesrr/rocm-xtra-dev:ubuntu22.04-rocm5.5.1-complete
 root@ftl:/app# ls -1 /opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx*
 /opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1010.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1011.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1012.dat
 /opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1030.dat
 /opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1100.dat
 /opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1101.dat

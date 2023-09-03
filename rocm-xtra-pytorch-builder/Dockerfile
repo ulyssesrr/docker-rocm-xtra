@@ -85,6 +85,8 @@ RUN git clone --depth 1 --branch v${PYTORCH_VISION_VERSION} --recursive https://
 
 RUN mkdir /patches
 COPY patches /patches
+
+# https://github.com/pytorch/vision/issues/7561
 RUN patch -Np1 -d /git/vision -i /patches/torchvision-fix_ROCm_build.patch
 
 ## generate wheel

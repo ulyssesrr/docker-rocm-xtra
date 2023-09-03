@@ -14,8 +14,8 @@ gfx906 | From upstream.
 gfx908 | From upstream.
 gfx90a | From upstream.
 gfx1010 | Fixed https://github.com/ROCmSoftwarePlatform/Tensile/issues/1757
-gfx1011 | Fixed https://github.com/ROCmSoftwarePlatform/Tensile/issues/1757
-gfx1012 | Fixed https://github.com/ROCmSoftwarePlatform/Tensile/issues/1757
+gfx1011 | Use `drun -e HSA_OVERRIDE_GFX_VERSION=10.1.0 ...`
+gfx1012 | Use `drun -e HSA_OVERRIDE_GFX_VERSION=10.1.0 ...`
 gfx1030 | From upstream.
 gfx1100 | From upstream.
 gfx1101 | From upstream.
