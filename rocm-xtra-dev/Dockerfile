@@ -17,6 +17,16 @@ FROM ulyssesrr/rocm-xtra-builder-rocblas:ubuntu${UBUNTU_VERSION}_rocm${ROCM_VERS
 
 FROM ulyssesrr/rocm-xtra-builder-rocsparse:ubuntu${UBUNTU_VERSION}_rocm${ROCM_VERSION} as rocsparse-package-builder
 
+FROM ulyssesrr/rocm-xtra-builder-rocrand:ubuntu${UBUNTU_VERSION}_rocm${ROCM_VERSION} as rocrand-package-builder
+
+FROM ulyssesrr/rocm-xtra-builder-rccl:ubuntu${UBUNTU_VERSION}_rocm${ROCM_VERSION} as rccl-package-builder
+
+FROM ulyssesrr/rocm-xtra-builder-rocfft:ubuntu${UBUNTU_VERSION}_rocm${ROCM_VERSION} as rocfft-package-builder
+
+FROM ulyssesrr/rocm-xtra-builder-rocprim:ubuntu${UBUNTU_VERSION}_rocm${ROCM_VERSION} as rocprim-package-builder
+
+FROM ulyssesrr/rocm-xtra-builder-rocthrust:ubuntu${UBUNTU_VERSION}_rocm${ROCM_VERSION} as rocthrust-package-builder
+
 FROM rocm/dev-ubuntu-${UBUNTU_VERSION}:${ROCM_VERSION_DOCKER}-complete
 
 ARG UBUNTU_VERSION
@@ -55,5 +65,35 @@ WORKDIR /tmp/rocsparse
 COPY --from=rocsparse-package-builder /deb/*.deb .
 RUN dpkg -i /tmp/rocsparse/*.deb \
     && rm -f /tmp/rocsparse/*.deb
+
+# replace rocrand with our version
+WORKDIR /tmp/rocrand
+COPY --from=rocrand-package-builder /deb/*.deb .
+RUN dpkg -i /tmp/rocrand/*.deb \
+    && rm -f /tmp/rocrand/*.deb
+
+# replace rccl with our version
+WORKDIR /tmp/rccl
+COPY --from=rccl-package-builder /deb/*.deb .
+RUN dpkg -i /tmp/rccl/*.deb \
+    && rm -f /tmp/rccl/*.deb
+
+# replace rocfft with our version
+WORKDIR /tmp/rocfft
+COPY --from=rocfft-package-builder /deb/*.deb .
+RUN dpkg -i /tmp/rocfft/*.deb \
+    && rm -f /tmp/rocfft/*.deb
+
+# replace rocprim with our version
+WORKDIR /tmp/rocprim
+COPY --from=rocprim-package-builder /deb/*.deb .
+RUN dpkg -i /tmp/rocprim/*.deb \
+    && rm -f /tmp/rocprim/*.deb
+
+# replace rocthrust with our version
+WORKDIR /tmp/rocthrust
+COPY --from=rocthrust-package-builder /deb/*.deb .
+RUN dpkg -i /tmp/rocthrust/*.deb \
+    && rm -f /tmp/rocthrust/*.deb
 
 WORKDIR /app

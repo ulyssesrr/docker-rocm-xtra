@@ -1,0 +1,26 @@
+diff --git a/src/collectives/device/prims_ll128.h b/src/collectives/device/prims_ll128.h
+index d5737bc..34b14a2 100644
+--- a/src/collectives/device/prims_ll128.h
++++ b/src/collectives/device/prims_ll128.h
+@@ -300,7 +300,7 @@ private:
+       }
+     }
+ 
+-#if !defined(__gfx1030__) && !defined(__gfx1100__) && !defined(__gfx1101__) && !defined(__gfx1102__)
++#if !defined(__gfx1010__) && !defined(__gfx1030__) && !defined(__gfx1100__) && !defined(__gfx1101__) && !defined(__gfx1102__)
+     if (tid == 0) __asm__ __volatile__("buffer_wbinvl1_vol");
+ #endif
+     /************************ Send **************************/
+diff --git a/src/include/devcomm.h b/src/include/devcomm.h
+index de8f57d..de19640 100644
+--- a/src/include/devcomm.h
++++ b/src/include/devcomm.h
+@@ -52,7 +52,7 @@ union ncclLLFifoLine {
+   int4 i4;
+ };
+ 
+-#if defined(__gfx1030__)  || defined(__gfx1100__) || defined(__gfx1101__) || defined(__gfx1102__)
++#if defined(__gfx1010__) || defined(__gfx1030__) || defined(__gfx1100__) || defined(__gfx1101__) || defined(__gfx1102__)
+ #define WARP_SIZE 32
+ #else
+ #define WARP_SIZE 64

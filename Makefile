@@ -2,9 +2,22 @@ all: dev pytorch llamacpp stable_diffusion_webui
 	echo "All built!"
 rocblas_fixed_package:
 	cd rocm-xtra-builder-rocblas && ./docker-build.sh
-rocsparse_fixed_package:
+rocsparse_package:
 	cd rocm-xtra-builder-rocsparse && ./docker-build.sh
-dev: rocblas_fixed_package rocsparse_fixed_package
+rocrand_package:
+	cd rocm-xtra-builder-rocrand && ./docker-build.sh
+rccl_package:
+	cd rocm-xtra-builder-rccl && ./docker-build.sh
+rocfft_package:
+	cd rocm-xtra-builder-rocfft && ./docker-build.sh
+runtime_packages: rocblas_fixed_package rocsparse_package rocrand_package rccl_package rocfft_package
+rocprim_package:
+	cd rocm-xtra-builder-rocprim && ./docker-build.sh
+rocthrust_package: rocprim_package
+	cd rocm-xtra-builder-rocthrust && ./docker-build.sh
+dev_packages: rocprim_package rocthrust_package
+all_packages: runtime_packages dev_packages
+dev: all_packages
 	cd rocm-xtra-dev && ./docker-build.sh
 llamacpp: dev
 	cd rocm-xtra-llamacpp && ./docker-build.sh

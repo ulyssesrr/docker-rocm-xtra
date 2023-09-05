@@ -1,0 +1,106 @@
+#10 1049.2 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.2         buffer_wbinvl1_vol
+#10 1049.2         ^
+#10 1049.2 
+#10 1049.2 
+#10 1049.2 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.2         buffer_wbinvl1_vol
+#10 1049.2         ^
+#10 1049.2 
+#10 1049.2 
+#10 1049.2 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.2         buffer_wbinvl1_vol
+#10 1049.2         ^
+#10 1049.2 
+#10 1049.2 
+#10 1049.2 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.2         buffer_wbinvl1_vol
+#10 1049.2         ^
+#10 1049.2 
+#10 1049.2 
+#10 1049.2 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.2         buffer_wbinvl1_vol
+#10 1049.2         ^
+#10 1049.2 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: ld-temp.o <inline asm>:1:2: instruction not supported on this GPU
+#10 1049.3         buffer_wbinvl1_vol
+#10 1049.3         ^
+#10 1049.3 
+#10 1049.3 
+#10 1049.3 lld: error: too many errors emitted, stopping now (use --error-limit=0 to see all errors)
+#10 1085.7 clang-16: error: amdgcn-link command failed with exit code 1 (use -v to see invocation)
+#10 1085.9 gmake[2]: *** [CMakeFiles/rccl.dir/build.make:1091: librccl.so.1.0.50601] Error 1
+#10 1085.9 gmake[1]: *** [CMakeFiles/Makefile2:84: CMakeFiles/rccl.dir/all] Error 2
+#10 1085.9 gmake: *** [Makefile:156: all] Error 2
+#10 ERROR: process "/bin/sh -c cmake --build build --target package -j$(nproc)" did not complete successfully: exit code: 2
