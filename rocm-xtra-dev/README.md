@@ -13,18 +13,7 @@ Built as:
 alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/current'
 ```
 
-## Sample usage
+## Usage
 ```shell
-[ulysses@ftl rocm-xtra-dev]$ drun  --pull=always --rm ulyssesrr/rocm-xtra-dev:ubuntu22.04-rocm5.5.1-complete
-root@ftl:/app# ls -1 /opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx*
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1010.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1030.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1100.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1101.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx1102.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx803.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx900.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx906.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx908.dat
-/opt/rocm/lib/rocblas/library/TensileLibrary_lazy_gfx90a.dat
+drun --pull=always --rm ulyssesrr/rocm-xtra-dev:latest
 ```
