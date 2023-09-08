@@ -4,8 +4,6 @@ This repo hosts the docker images with ROCm backend support for extra architectu
 
 # Supported Architectures:
 
-The following archs are supported, despite the repository name 😄:
-
 Image | Description
 --- | ---
 gfx803 | Uses workaround: https://github.com/ROCmSoftwarePlatform/rocBLAS/issues/1218
@@ -17,6 +15,8 @@ gfx1010 | Fixed https://github.com/ROCmSoftwarePlatform/Tensile/issues/1757
 gfx1011 | Use `drun -e HSA_OVERRIDE_GFX_VERSION=10.1.0 ...`
 gfx1012 | Use `drun -e HSA_OVERRIDE_GFX_VERSION=10.1.0 ...`
 gfx1030 | From upstream.
+gfx1031 | Use `drun -e HSA_OVERRIDE_GFX_VERSION=10.3.0 ...`
+gfx1032 | Use `drun -e HSA_OVERRIDE_GFX_VERSION=10.3.0 ...`
 gfx1100 | From upstream.
 gfx1101 | From upstream.
 gfx1102 | From upstream.
