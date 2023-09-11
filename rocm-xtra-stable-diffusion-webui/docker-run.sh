@@ -8,6 +8,7 @@ drun() {
 drun --rm \
     -v $(pwd)/cache:/root/.cache \
     -v $(pwd)/data:/stable-diffusion-webui/data \
+    -v $(pwd)/data/embeddings:/stable-diffusion-webui/embeddings \
     -v $(pwd)/outputs:/stable-diffusion-webui/outputs \
     "$docker_image_name:$docker_image_tag" \
     "$@"
